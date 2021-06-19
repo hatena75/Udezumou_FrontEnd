@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="308dp"
         android:progressDrawable="@drawable/progressbar"
-        android:scaleX="6"
+        android:scaleX="8"
         android:scaleY="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +51,15 @@
         android:id="@+id/textView_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
         android:layout_marginTop="164dp"
         android:scaleX="2"
         android:scaleY="2"
-        android:text="State"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Waiting"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView_myName"
@@ -71,6 +72,7 @@
         android:scaleX="3"
         android:scaleY="3"
         android:text="You"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_opponentName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -83,7 +85,7 @@
         android:scaleX="3"
         android:scaleY="3"
         android:text="50"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_opponentMuscle"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView_opponentMuscle"
         app:layout_constraintVertical_bias="0.0" />
@@ -98,7 +100,7 @@
         android:gravity="right"
         android:scaleX="3"
         android:scaleY="3"
-        android:text="Waiting"
+        android:text="？？？"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -106,14 +108,14 @@
         android:id="@+id/textView_opponentMuscle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="244dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
         android:scaleX="3"
         android:scaleY="3"
         android:text="50"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_progress" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity{
                     {
                         Toast.makeText( MainActivity.this, "Match!", Toast.LENGTH_SHORT ).show();
                         isFight = true;
+                        StateTextView.setText("Fight!");
                         JSONObject objMessage = (JSONObject)args[0];
                         try
                         {
