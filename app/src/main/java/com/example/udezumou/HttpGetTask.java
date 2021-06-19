@@ -14,22 +14,24 @@ import java.util.regex.Pattern;
 
 public class HttpGetTask extends AsyncTask<Void, Void, String> {
     private TextView mTextView;
-    private Activity mParentActivity;
-    private ProgressDialog mDialog = null;
+    //private Activity mParentActivity;
+    //private ProgressDialog mDialog = null;
 
     private String mUri="https://www.yamagiwalab.jp/~yama/KPK/Hello.html";
-    public HttpGetTask(Runnable parentActivity, TextView textView){
-        this.mParentActivity = (Activity) parentActivity;
+    public HttpGetTask(TextView textView){
+        //this.mParentActivity = (Activity) parentActivity;
         this.mTextView = textView;
     }
 
     //タスク開始時
+    /*
     @Override
     protected void onPreExecute(){
         mDialog = new ProgressDialog(mParentActivity);
         mDialog.setMessage("");
         mDialog.show();
     }
+    */
 
     //メイン処理
     @Override
@@ -40,7 +42,7 @@ public class HttpGetTask extends AsyncTask<Void, Void, String> {
     //タスク終了時
     @Override
     protected void onPostExecute(String string){
-        mDialog.dismiss();
+        //mDialog.dismiss();
         this.mTextView.setText(string);
     }
 

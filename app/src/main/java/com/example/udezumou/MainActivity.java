@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity{
     private TextView OpponentPowerTextView;
     private TextView MyNameTextView;
     private TextView OpponentNameTextView;
+    private TextView MyMuscleTextView;
     private ProgressBar bar;
 
     private boolean isFight = false;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
         OpponentPowerTextView = findViewById(R.id.textView_opponentMuscle);
         MyNameTextView = findViewById(R.id.textView_myName);
         OpponentNameTextView = findViewById(R.id.textView_opponentName);
+        MyMuscleTextView = findViewById(R.id.textView_mysensor);
         bar = (ProgressBar)findViewById(R.id.progressBar);
         bar.setMax(100);
         bar.setProgress(50);
@@ -266,7 +268,7 @@ public class MainActivity extends AppCompatActivity{
                 return;
             }
             //HTTPのGETメソッドで情報を取得
-            //HttpGetTask task = new HttpGetTask(this, MyPowerTextView);
+            //HttpGetTask task = new HttpGetTask(MyMuscleTextView);
             //task.execute();
             //Log.d("GET", MyPowerTextView.getText().toString());
             Random rand = new Random();
