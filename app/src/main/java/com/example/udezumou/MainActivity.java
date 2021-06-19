@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity{
     private boolean isFight = false;
     private boolean bePlayer2 = false;
 
+    public static int myPower = 0;
+
     private static final String URI_SERVER = "http://192.168.11.30:8080";
 
     @Override
@@ -289,7 +291,6 @@ public class MainActivity extends AppCompatActivity{
     //定期的にセンサーの値をGETしてサーバ側に送信
     final Handler getMuscleLoop = new Handler();
     final Runnable r = new Runnable() {
-        int count = 0;
         @Override
         public void run() {
             // UIスレッド
@@ -298,13 +299,13 @@ public class MainActivity extends AppCompatActivity{
                 return;
             }
             //HTTPのGETメソッドで情報を取得
-            //HttpGetTask task = new HttpGetTask(MyMuscleTextView);
-            //task.execute();
+            HttpGetTask task = new HttpGetTask(MyMuscleTextView);
+            task.execute();
             //Log.d("GET", MyPowerTextView.getText().toString());
-            Random rand = new Random();
-            int myPower = rand.nextInt(1023); //仮の乱数
+            //Random rand = new Random();
+            //int myPower = rand.nextInt(1023); //仮の乱数
             //int myPower = Integer.parseInt(MyMuscleTextView.getText().toString());
-            MyMuscleTextView.setText(String.valueOf(myPower));
+            //MyMuscleTextView.setText(String.valueOf(myPower));
 
             // サーバーに情報を送信する。
             //msg.value,mgs.roomId,msg.userName,

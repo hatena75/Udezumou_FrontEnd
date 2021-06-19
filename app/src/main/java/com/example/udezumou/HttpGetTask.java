@@ -17,7 +17,9 @@ public class HttpGetTask extends AsyncTask<Void, Void, String> {
     //private Activity mParentActivity;
     //private ProgressDialog mDialog = null;
 
-    private String mUri="https://www.yamagiwalab.jp/~yama/KPK/Hello.html";
+    //private String mUri="http://192.168.11.34/~pi/muscle_sensor_getter.php";
+    private String mUri="http://192.168.11.35/~pi/muscle_sensor_getter.php";
+
     public HttpGetTask(TextView textView){
         //this.mParentActivity = (Activity) parentActivity;
         this.mTextView = textView;
@@ -43,7 +45,9 @@ public class HttpGetTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String string){
         //mDialog.dismiss();
+        Log.d("http_str",string);
         this.mTextView.setText(string);
+        MainActivity.myPower = Integer.parseInt(string);
     }
 
     private String exec_get(){
