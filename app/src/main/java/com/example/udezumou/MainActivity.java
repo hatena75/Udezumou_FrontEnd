@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,10 +35,11 @@ public class MainActivity extends AppCompatActivity{
     private TextView OpponentPowerTextView;
     private TextView MyNameTextView;
     private TextView OpponentNameTextView;
+    private ProgressBar bar;
 
     private boolean isFight = false;
 
-    private static final String URI_SERVER = "http://192.168.10.11:8080";
+    private static final String URI_SERVER = "http://192.168.32.32:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity{
         OpponentPowerTextView = findViewById(R.id.textView_opponentMuscle);
         MyNameTextView = findViewById(R.id.textView_myName);
         OpponentNameTextView = findViewById(R.id.textView_opponentName);
+        bar = (ProgressBar)findViewById(R.id.progressBar);
+        bar.setMax(100);
+        bar.setProgress(50);
 
         // 呼び出し元からパラメータ取得
         Bundle extras = getIntent().getExtras();
@@ -184,8 +189,10 @@ public class MainActivity extends AppCompatActivity{
                         try
                         {
                             //各々のパワー表示を更新
-                            MyPowerTextView.setText(objMessage.getString("userName"));
+                            String userPow = objMessage.getString("userName");
+                            MyPowerTextView.setText(userPow);
                             OpponentPowerTextView.setText(objMessage.getString("opponent"));
+                            bar.setProgress(Integer.parseInt(userPow));
                         }
                         catch( JSONException e )
                         {
@@ -217,6 +224,7 @@ public class MainActivity extends AppCompatActivity{
                             String opponentGage = objMessage.getString("opponent");
                             MyPowerTextView.setText(userGage);
                             OpponentPowerTextView.setText(objMessage.getString(opponentGage));
+                            bar.setProgress(Integer.parseInt(userGage));
                             if(Integer.parseInt(userGage) > Integer.parseInt(opponentGage)){
                                 StateTextView.setText("You Win!");
                             }
