@@ -265,12 +265,12 @@ public class MainActivity extends AppCompatActivity{
                 return;
             }
             //HTTPのGETメソッドで情報を取得
-            //MuscleHttpGetTask task = new MuscleHttpGetTask(this);
+            //HttpGetTask task = new HttpGetTask(this, MyPowerTextView);
             //task.execute();
-
-            // 「Send」ボタンを押したときの処理
+            //Log.d("GET", MyPowerTextView.getText().toString());
             Random rand = new Random();
-            int myPower = rand.nextInt(1023); //筋力センサーの値
+            int myPower = rand.nextInt(1023); //仮の乱数
+            //int myPower = Integer.parseInt(MyPowerTextView.getText().toString());
 
             // サーバーに情報を送信する。
             //msg.value,mgs.roomId,msg.userName,
