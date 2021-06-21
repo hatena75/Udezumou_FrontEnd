@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity{
     private boolean isFight = false;
     private boolean bePlayer2 = false;
 
-    private static final String URI_SERVER = "http://192.168.11.30:8080";
+    private static final String URI_SERVER = "http://118.27.3.151:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
